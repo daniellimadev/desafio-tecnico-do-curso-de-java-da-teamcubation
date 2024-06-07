@@ -130,3 +130,104 @@ Vamos propôr a seguir alguns desafios extras caso você queira testar seus conh
 7. **Documentação da API:** Você consegue documentar sua API? Existem [ferramentas](https://swagger.io/) e [padrões](http://raml.org/) que podem te ajudar com isso!
 8. **Documentação do Sistema:** Sua aplicação provavelmente precisa ser construída antes de ser executada. Você consegue documentar como outra pessoa que pegou sua aplicação pela primeira vez pode construir e executar sua aplicação?
 9. **Configurações:** Você consegue deixar sua aplicação configurável em relação a quantidade de segundos para calcular as estatísticas? Por exemplo: o padrão é 60 segundos, mas e se o usuário quiser 120 segundos?
+
+
+# Instalação da aplicação
+
+Primeiramente, faça o clone do repositório:
+```
+git clone -b Daniel-Pereira https://github.com/rafaellarosa07/desafio-tecnico.git
+```
+Na branches ``Daniel-Pereira``
+
+Feito isso, acesse o projeto:
+```
+cd desafio-tecnico
+```
+É preciso compilar o código e baixar as dependências do projeto:
+```
+mvn clean package
+```
+Finalizado esse passo, vamos iniciar a aplicação:
+```
+mvn spring-boot:run
+```
+Pronto. A aplicação está disponível em http://localhost:8080/transacao
+```
+Tomcat started on port(s): 8080 (http)
+Started AppConfig in xxxx seconds (JVM running for xxxx)
+```
+
+# Setup da aplicação com docker
+
+## Pré-requisito
+
+Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
+
+```
+Java 17
+Docker
+Maven
+```
+
+Para fazer o docker build executar o comando abaixo:
+```
+docker build -t estatiticas-transacao:lastest .
+```
+Para dar o start da aplicação no docker executar o comando abaixo:
+```
+docker run -p 8080:8080 estatiticas-transacao:lastest
+```
+
+# Para testar os Endpoints seguir os parametros abaixo:
+
+Para Salvar:
+
+POST : http://localhost:8080/transacao
+
+No parametros em JSON
+
+```
+{
+    "valor": 300.00,
+    "dataHora": "2020-08-07T12:34:56.789-03:00"
+}
+```
+
+Para Buscar:
+
+GET : http://localhost:8080/transacao
+
+Ele retorna em JSON:
+
+```
+{
+    "count": 1,
+    "sum": 300.0,
+    "avg": 300.0,
+    "min": 300.0,
+    "max": 300.0
+}
+```
+
+Para deletar todos os dados de transações:
+
+DELETE : http://localhost:8080/transacao
+
+### Para testar a observabilidade do spring boot actuator seguir o exemplo do endpoit abaixo:
+
+Endpoit: http://localhost:8080/actuator/metrics/process.cpu.usage
+
+
+### Para testar a documentacao da Api com swagger seguir o exemplo do endpoit abaixo:
+
+Endpoit: http://localhost:8080/swagger-ui/index.html
+
+<h3>Autor</h3>
+
+<a href="https://www.linkedin.com/in/danielpereiralima/">
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/96916005?v=4" width="100px;" alt=""/>
+
+Feito por Daniel Pereira Lima 👋🏽 Contato!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Daniel-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/danielpereiralima/)](https://www.linkedin.com/in/danielpereiralima/)
