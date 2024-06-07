@@ -73,6 +73,15 @@ public class TransacaoService {
         return estatísticasDTO;
     }
 
+    public void deletar() {
+
+        while (transacoes.iterator().hasNext()) {
+            transacoes.remove(0);
+        }
+
+        log.info("Transação deletadas com sucesso!");
+    }
+
     public void validaRequest(TransacaoDTO transacaoDTO) {
 
         OffsetDateTime offsetDateTime = OffsetDateTime.now();
