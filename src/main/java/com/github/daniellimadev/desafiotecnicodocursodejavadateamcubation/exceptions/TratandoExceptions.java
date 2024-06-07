@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class TratandoExceptions {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity tratarErro400(MethodArgumentNotValidException ex) {
-        var erros = ex.getFieldErrors();
         return ResponseEntity.badRequest().body(ex.getMessage());
     }
 
