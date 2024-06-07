@@ -136,10 +136,8 @@ Vamos propôr a seguir alguns desafios extras caso você queira testar seus conh
 
 Primeiramente, faça o clone do repositório:
 ```
-git clone -b Daniel-Pereira https://github.com/rafaellarosa07/desafio-tecnico.git
+git clone https://github.com/daniellimadev/desafio-tecnico-do-curso-de-java-da-teamcubation.git
 ```
-Na branches ``Daniel-Pereira``
-
 Feito isso, acesse o projeto:
 ```
 cd desafio-tecnico
