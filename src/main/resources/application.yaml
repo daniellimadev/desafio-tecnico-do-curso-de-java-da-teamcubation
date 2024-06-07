@@ -1,3 +1,14 @@
 spring:
   application:
     name: desafio-tecnico-do-curso-de-java-da-teamcubation
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
